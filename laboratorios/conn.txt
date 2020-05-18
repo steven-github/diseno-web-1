@@ -1,0 +1,34 @@
+"ConnectionStrings": {
+    "myconn": "Data Source=informe-lab-1.database.windows.net;Initial Catalog=informe-lab-1;User ID=steven;Password=1nf0rm3-l4b-1;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+  }
+
+
+---------------------------
+
+services.AddDbContext<MyDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("myconn")));
+
+
+--------------------------
+
+public class MyDBContext : DbContext
+    {
+        //Tutorial
+        public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)
+        {
+
+        }
+        public DbSet<User> User { get; set; }
+    }
+
+    public class User
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public int Status { get; set; } = 0;
+        public int Rol { get; set; } = 0;
+        public int BossId { get; set; } = -1;
+    }
