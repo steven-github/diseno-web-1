@@ -1,0 +1,2 @@
+var expRegNombre=/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+var expRegEmail=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
