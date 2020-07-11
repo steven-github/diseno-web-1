@@ -1,0 +1,34 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2rem;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justifiy-contetnt: flex-start;
+  padding: 0.4rem;
+  
+  &-column { flex-direction: column; }
+  
+  @for $i from 1 through 12 {
+    &-#{$i} { flex: $i; }
+    &-order-#{$i} { order: $i; }
+  }
+  
+  &-center {
+    justify-content: center;
+  }
+}
+
+.flex p {
+  border: solid 1px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+}
+
